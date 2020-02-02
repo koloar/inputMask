@@ -6,8 +6,8 @@ import { Directive, Input, ElementRef, OnInit, OnDestroy } from '@angular/core';
 export class InputMaskDirective implements OnInit, OnDestroy {
   @Input() readonly appInputMask: string;
   @Input() readonly autoPlaceholder = false;
-  @Input() readonly allowedNumber = '0-9';
-  @Input() readonly allowedLetter = 'a-zA-Z';
+  @Input() readonly allowedNumber = '[0-9]';
+  @Input() readonly allowedLetter = '[a-zA-Z]';
   @Input() placeholder: string;
 
   myPlaceholder: string[] = [];
@@ -52,9 +52,9 @@ export class InputMaskDirective implements OnInit, OnDestroy {
 
   initInput(): void {
     this.defs = {
-      n: '['.concat(this.allowedNumber, ']'),
-      a: '['.concat(this.allowedLetter, ']'),
-      '*': '['.concat(this.allowedLetter, this.allowedNumber, ']')
+      n: this.allowedNumber,
+      a: this.allowedLetter,
+      '*': this.allowedLetter.concat('|', this.allowedNumber)
     };
 
     for (let i = 0; i < this.appInputMask.length; i++) {

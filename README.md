@@ -16,11 +16,11 @@ attributy:
         př.:  '/n/n/n - /a/a/a // /*/*/*' => '___ - ___ / ___'
     
     allowedNumber: string
-        - default = 0-9
+        - default = [0-9]
         - lze změnit povolené znaky pro selektor /n
-        př.: 5-7 => 5, 6, 7
+        př.: [5-7] => 5, 6, 7
 
     allowedLetter: string
-        - default = a-zA-Z
+        - default = [a-zA-Z]
         - lze změnit povolené znaky pro selektor /a
-        př.: 5-7 => 5, 6, 7
+        př.: [5-7] => 5, 6, 7
