@@ -1,5 +1,15 @@
 selector: appInputMask
 
+vyplnovaní inputu:
+    stisknutí povoleného písmena/čísla - zapíše char na místo stávajícího
+    stisknutí ENTER - doplní celý input autoFillCharem
+    stisknutí ESCAPE - vymaže všechny možné znaky za _
+    stisknutí BACKSPACE - nahradí předchozí char za _
+    stisknutí DELETE - nahradí aktuální char za _
+    stisknutí CTRL + X - vyjme vybranou oblast a nahradí z basic placeholderu
+    stisknutí CTRL + V - vloží text do inputu, volná místa nahradi za autoFillChar
+                         blbě vyplněný text nahradí za autoFillChar, vyplnujě odzadu
+
 attributy:
 
     appInputMask: string
@@ -24,3 +34,8 @@ attributy:
         - default = [a-zA-Z]
         - lze změnit povolené znaky pro selektor /a
         př.: [5-7] => 5, 6, 7
+
+    autoFillChar: string
+        - default = _
+        - při paste eventu a stisku enter nahradí
+          nevyplněné políčka zástopním znakem
